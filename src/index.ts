@@ -9,6 +9,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { db } from "./config/db";
 import { sql } from "drizzle-orm";
+import router from "@/routes";
+import { errorHandler } from "./middlewares/errorHanler.middleware";
 
 const app = express();
 
@@ -45,6 +47,13 @@ app.get(
     });
   })
 );
+
+
+// applications routes
+app.use('/api', router)
+
+// Error handling middleware (must be last)
+app.use(errorHandler);
 
 app.listen(Env.PORT, async () => {
   await db.execute(sql`SELECT 1`);

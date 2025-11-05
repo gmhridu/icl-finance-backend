@@ -5,7 +5,8 @@ export const ErrorCodes = {
   ERR_BAD_REQUEST: "ERR_BAD_REQUEST",
   ERR_UNAUTHORIZED: "ERR_UNAUTHORIZED",
   ERR_FORBIDDEN: "ERR_FORBIDDEN",
-  ERR_NOT_FOUND: "ERR_NOT_FOUND"
+  ERR_NOT_FOUND: "ERR_NOT_FOUND",
+  ERR_CONFLICT: "ERR_CONFLICT"
 } as const;
 
 export type ErrorCodeType = keyof typeof ErrorCodes;
@@ -48,6 +49,12 @@ export class ForbiddenException extends AppError {
 export class NotFoundException extends AppError {
   constructor (message: string = "Not Found") {
     super(message, HTTPSTATUS.NOT_FOUND, ErrorCodes.ERR_NOT_FOUND);
+  }
+}
+
+export class ConflictException extends AppError {
+  constructor (message: string = "Conflict") {
+    super(message, HTTPSTATUS.CONFLICT, ErrorCodes.ERR_CONFLICT);
   }
 }
 
