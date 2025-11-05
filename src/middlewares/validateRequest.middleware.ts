@@ -7,7 +7,11 @@ const validateRequest = (schema: ZodType | ZodSchema) => {
   return asyncHandler(
     async (req: Request, res: Response, next: NextFunction) => {
       try {
-        await schema.parseAsync(req.body);
+        await schema.parseAsync({
+          ...req.body,
+          ...req.cookies,
+          refreshToken: req.cookies.refreshToken,
+        });
         next();
       } catch (error) {
         if (error instanceof ZodError) {
