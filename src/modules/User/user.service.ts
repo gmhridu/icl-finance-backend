@@ -1,7 +1,7 @@
-import { TRegisterUser } from "@/@types/auth/auth.interface";
 import { db } from "@/config/db";
 import { users } from "@/drizzle";
-import { eq, or } from "drizzle-orm";
+import { eq } from "drizzle-orm";
+import { TRegisterUser } from "@/modules/Auth/auth.interface";
 
 const getUserFromDB = async (phone: string) => {
   return await db.query.users.findFirst({
@@ -19,7 +19,7 @@ const createUser = async (payload: TRegisterUser) => {
   return await db.insert(users).values(payload).returning();
 };
 
-export const userServices = {
+export const UserServices = {
   getUserFromDB,
   getUserById,
   createUser,

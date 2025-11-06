@@ -1,20 +1,14 @@
-import { Router } from "express";
-import { authRouter } from "./auth/auth.route";
-
-type TRoutes = {
-  path: string;
-  route: Router;
-};
+import { AuthRouter } from "@/modules/Auth/auth.route";
+import { Router, Express } from "express";
 
 const router = Router();
 
-const routes: TRoutes[] = [
-  {
-    path: "/auth",
-    route: authRouter,
-  },
-];
+const getApiRoutes = () => {
+  router.use("/auth", AuthRouter);
 
-routes.forEach((route) => router.use(route.path, route.route));
+  return router;
+};
 
-export default router;
+export const setupApiRoutes = (app: Express): void => {
+  app.use("/api/v1", getApiRoutes());
+};

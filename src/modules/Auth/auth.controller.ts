@@ -1,11 +1,11 @@
 import { Env } from "@/config/env.config";
 import { HTTPSTATUS } from "@/config/http.config";
 import { asyncHandler } from "@/middlewares/asyncHandler.middleware";
-import { authServices } from "@/services/auth/auth.service";
+import { AuthServices } from "@/modules/Auth/auth.service";
 import sendResponse from "@/utils/sendResponse";
 
 const registerUser = asyncHandler(async (req, res) => {
-  const result = await authServices.registerUser(req.body);
+  const result = await AuthServices.registerUser(req.body);
 
   sendResponse(res, {
     status: HTTPSTATUS.CREATED,
@@ -16,7 +16,7 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 const loginUser = asyncHandler(async (req, res) => {
-  const result = await authServices.loginUser(req.body);
+  const result = await AuthServices.loginUser(req.body);
 
   const { refreshToken, accessToken } = result;
 
@@ -40,7 +40,7 @@ const loginUser = asyncHandler(async (req, res) => {
 const refreshToken = asyncHandler(async (req, res) => {
   const { refreshToken } = req.cookies;
 
-  const result = await authServices.refreshToken(refreshToken);
+  const result = await AuthServices.refreshToken(refreshToken);
 
   sendResponse(res, {
     status: HTTPSTATUS.OK,
@@ -50,7 +50,7 @@ const refreshToken = asyncHandler(async (req, res) => {
   });
 });
 
-export const authControllers = {
+export const AuthControllers = {
   registerUser,
   loginUser,
   refreshToken,

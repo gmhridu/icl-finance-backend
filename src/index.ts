@@ -9,10 +9,16 @@ import helmet from "helmet";
 import morgan from "morgan";
 import { db } from "./config/db";
 import { sql } from "drizzle-orm";
-import router from "@/routes";
-import { errorHandler } from "./middlewares/errorHanler.middleware";
+import { setupApiRoutes } from "@/routes";
+import {
+  errorHandler,
+  requestIdMiddleware,
+} from "./middlewares/errorHandler.middleware";
+import { notFoundHandler } from "./middlewares/notFound.middleware";
 
 const app = express();
+
+app.use(requestIdMiddleware);
 
 app.use(express.json());
 app.use(cookieParser());
@@ -48,11 +54,13 @@ app.get(
   })
 );
 
-
 // applications routes
-app.use('/api', router)
+setupApiRoutes(app);
 
-// Error handling middleware (must be last)
+// 404 Handler (after all routes)
+app.use(notFoundHandler);
+
+// Global Error Handler (last)
 app.use(errorHandler);
 
 app.listen(Env.PORT, async () => {
