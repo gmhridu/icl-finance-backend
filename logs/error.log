@@ -1,0 +1,1 @@
+{"level":"error","message":"Validation failed.","name":"Error","query":{},"stack":"Error: Validation failed.\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\validateRequest.middleware.ts:36:15\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-06 23:18:25","user":"anonymous"}
