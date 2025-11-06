@@ -6,3 +6,6 @@
 {"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-06 23:13:37"}
 {"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-06 23:17:03"}
 {"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-06 23:17:03"}
+{"error":[{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["body","name"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["body","phone"]},{"code":"invalid_type","expected":"string","message":"Invalid input: expected string, received undefined","path":["body","password"]}],"level":"warn","message":"Validation error","method":"POST","timestamp":"2025-11-06 23:18:25","url":"/register"}
+{"level":"error","message":"Validation failed.","name":"Error","query":{},"stack":"Error: Validation failed.\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\validateRequest.middleware.ts:36:15\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-06 23:18:25","user":"anonymous"}
+{"level":"http","message":"POST /api/v1/auth/register 422 11ms","timestamp":"2025-11-06 23:18:25"}
