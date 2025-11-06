@@ -40,9 +40,24 @@ const changePasswordValidationSchema = z.object({
   }),
 });
 
+const forgetPasswordValidationSchema = z.object({
+  body: z.object({
+    phone: z.string("Phone Number is required"),
+  }),
+});
+
+const resetPasswordValidation = z.object({
+  body: z.object({
+    id: z.string("User Id is required!"),
+    newPassword: z.string("Password is required"),
+  }),
+});
+
 export const UserValidations = {
   registerUserValidationSchema,
   loginUserValidationSchema,
   refreshTokenValidationSchema,
   changePasswordValidationSchema,
+  forgetPasswordValidationSchema,
+  resetPasswordValidation,
 };

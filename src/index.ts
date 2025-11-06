@@ -1,4 +1,5 @@
 import "dotenv/config";
+import path from "path";
 import express, { Request, Response } from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -23,6 +24,7 @@ app.use(requestIdMiddleware);
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(
   cors({
     origin: Env.FRONTEND_ORIGIN!,

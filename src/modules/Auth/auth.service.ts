@@ -8,14 +8,16 @@ import {
   UnauthorizedException,
 } from "@/utils/app-error";
 import { Env } from "@/config/env.config";
-import { JwtPayload, SignOptions } from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import { UserServices } from "@/modules/User/user.service";
 import { TLoginUser, TRegisterUser } from "@/modules/Auth/auth.interface";
 import {
   createToken,
   IJwtPayload,
+  passwordResetEmailTemplate,
   verifyToken,
 } from "@/modules/Auth/auth.utils";
+import { sendEmail } from "@/utils/sendEmail";
 
 const registerUser = async (payload: TRegisterUser) => {
   try {
@@ -164,9 +166,70 @@ const changePassword = async (
   return null;
 };
 
+const forgetPassword = async (phone: string) => {
+  const user = await UserServices.getUserFromDB(phone);
+
+  if (!user) throw new NotFoundException("This user is not found!");
+
+  const { status } = user;
+
+  if (status === "suspended")
+    throw new ForbiddenException("This user is suspended");
+  if (status === "banned") throw new ForbiddenException("This user is banned");
+
+  if (!user.email)
+    throw new UnauthorizedException("Email is not set for this user!");
+
+  const jwtPayload = {
+    userId: user.id,
+    number: user.phone,
+  };
+
+  const resetToken = createToken(jwtPayload, Env.JWT_ACCESS_SECRET, "10m");
+
+  const resetPasswordLink = `${Env.FRONTEND_ORIGIN}?id=${user.id}&token=${resetToken}`;
+
+  sendEmail({
+    to: user.email,
+    subject: "Reset Your Password – ICL Finance",
+    html: passwordResetEmailTemplate(resetPasswordLink, user.email),
+    from: "ICL FINANCE <support@icl.finance>",
+  });
+};
+
+const resetPassword = async (
+  payload: { id: string; newPassword: string },
+  token: string
+) => {
+  const user = await UserServices.getUserById(payload.id);
+
+  if (!user) throw new NotFoundException("This user is not found!");
+
+  const { status } = user;
+
+  if (status === "suspended")
+    throw new ForbiddenException("This user is suspended");
+  if (status === "banned") throw new ForbiddenException("This user is banned");
+
+  const decoded = jwt.verify(token, Env.JWT_ACCESS_SECRET) as JwtPayload;
+
+  if (payload.id !== decoded?.userId)
+    throw new UnauthorizedException(
+      "Your are not authorized to reset password"
+    );
+
+  const saltRounds = 10;
+
+  const newHashPassword = await bcrypt.hash(payload.newPassword, saltRounds);
+
+  await UserServices.changeUserPassword(user.id, newHashPassword);
+};
+
 export const AuthServices = {
   registerUser,
   loginUser,
   refreshToken,
   changePassword,
+  forgetPassword,
+  resetPassword,
 };

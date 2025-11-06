@@ -4,7 +4,9 @@ import ms, { type StringValue } from "ms";
 const validateMs = (key: string, value: string): number => {
   const milliseconds = ms(value as StringValue);
   if (isNaN(milliseconds)) {
-    throw new Error(`Invalid ${key}: "${value}" is not a valid duration (e.g. 5m, 7d)`);
+    throw new Error(
+      `Invalid ${key}: "${value}" is not a valid duration (e.g. 5m, 7d)`
+    );
   }
   return milliseconds;
 };
@@ -33,4 +35,7 @@ export const Env = {
     "JWT_REFRESH_EXPIRES_IN",
     getEnv("JWT_REFRESH_EXPIRES_IN", "7d")
   ),
+  BACKEND_URL: getEnv("BACKEND_URL", "http://localhost:5000"),
+
+  RESEND_API_KEY: getEnv("RESEND_API_KEY", "re_xxxxxxxxx"),
 } as const;

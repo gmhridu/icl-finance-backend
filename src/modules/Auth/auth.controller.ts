@@ -65,7 +65,10 @@ const refreshToken = asyncHandler(async (req, res) => {
 const changePassword = asyncHandler(async (req, res) => {
   const { ...passwordData } = req.body;
 
-  const result = await AuthServices.changePassword(req.user! as IJwtPayload, passwordData);
+  const result = await AuthServices.changePassword(
+    req.user! as IJwtPayload,
+    passwordData
+  );
 
   sendResponse(res, {
     status: HTTPSTATUS.OK,
@@ -75,9 +78,36 @@ const changePassword = asyncHandler(async (req, res) => {
   });
 });
 
+const forgetPassword = asyncHandler(async (req, res) => {
+  const { phone } = req.body;
+  const result = await AuthServices.forgetPassword(phone);
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "Password reset link is sent to your email!",
+    data: result,
+  });
+});
+
+const resetPassword = asyncHandler(async (req, res) => {
+  const token = req.headers.authorization;
+
+  const result = await AuthServices.resetPassword(req.body, token as string);
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "Password reset successfully!",
+    data: result,
+  });
+});
+
 export const AuthControllers = {
   registerUser,
   loginUser,
   refreshToken,
   changePassword,
+  forgetPassword,
+  resetPassword,
 };
