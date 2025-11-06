@@ -1,4 +1,4 @@
-import { AuthRouter } from "@/modules/Auth/auth.route";
+import AuthRouter  from "@/modules/Auth/auth.route";
 import { Router, Express } from "express";
 
 const router = Router();

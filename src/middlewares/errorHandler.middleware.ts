@@ -10,6 +10,7 @@ import {
   handleJwtError,
   InternalServerException,
 } from "../utils/app-error";
+import Logger from "../utils/logger";
 
 declare global {
   namespace Express {
@@ -29,14 +30,14 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, _next) => {
   const isDev = Env.NODE_ENV !== "production";
 
   // Log full error
-  // console.error(`[${requestId}] ${req.method} ${req.originalUrl}`, {
-  //   name: err.name,
-  //   message: err.message,
-  //   stack: err.stack,
-  //   body: req.body,
-  //   query: req.query,
-  //   user: (req as any).user?.id ?? "anonymous",
-  // });
+  Logger.error(`[${requestId}] ${req.method} ${req.originalUrl}`, {
+    name: err.name,
+    message: err.message,
+    stack: err.stack,
+    body: req.body,
+    query: req.query,
+    user: (req as any).user?.id ?? "anonymous",
+  });
 
   let appError: AppError;
 

@@ -4,7 +4,7 @@ import { Router } from "express";
 import { UserValidations } from "../User/user.validation";
 import auth from "@/middlewares/auth.middleware";
 
-const router = Router();
+const router: Router = Router();
 
 router.post(
   "/register",
@@ -31,4 +31,4 @@ router.post(
   AuthControllers.changePassword
 );
 
-export const AuthRouter = router;
+export default router;

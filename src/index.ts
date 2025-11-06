@@ -6,7 +6,6 @@ import { Env } from "./config/env.config";
 import { HTTPSTATUS } from "./config/http.config";
 import { asyncHandler } from "./middlewares/asyncHandler.middleware";
 import helmet from "helmet";
-import morgan from "morgan";
 import { db } from "./config/db";
 import { sql } from "drizzle-orm";
 import { setupApiRoutes } from "@/routes";
@@ -15,10 +14,15 @@ import {
   requestIdMiddleware,
 } from "./middlewares/errorHandler.middleware";
 import { notFoundHandler } from "./middlewares/notFound.middleware";
+import httpLogger from "./middlewares/httpLogger.middleware";
+import AppLogger from "./utils/logger";
 
 const app = express();
 
 app.use(requestIdMiddleware);
+
+// Use our custom HTTP logger instead of Morgan
+app.use(httpLogger());
 
 app.use(express.json());
 app.use(cookieParser());
@@ -31,7 +35,6 @@ app.use(
 );
 
 app.use(helmet());
-app.use(morgan(Env.NODE_ENV === "production" ? "combined" : "dev"));
 
 app.get("/", (_req: Request, res: Response) => {
   res.status(HTTPSTATUS.OK).json({
@@ -65,9 +68,9 @@ app.use(errorHandler);
 
 app.listen(Env.PORT, async () => {
   await db.execute(sql`SELECT 1`);
-  console.log("🟢 Database connected successfully");
+  AppLogger.info("🟢 Database connected successfully");
 
-  console.log(
+  AppLogger.info(
     `🚀 Server running at http://localhost:${Env.PORT} in ${Env.NODE_ENV} mode`
   );
 });
