@@ -33,7 +33,7 @@ app.use(
 app.use(helmet());
 app.use(morgan(Env.NODE_ENV === "production" ? "combined" : "dev"));
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (_req: Request, res: Response) => {
   res.status(HTTPSTATUS.OK).json({
     status: "OK",
     message: "🚀 Welcome to ICL FINANCE API!",
@@ -44,7 +44,7 @@ app.get("/", (req: Request, res: Response) => {
 
 app.get(
   "/health",
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (_req, res) => {
     res.status(HTTPSTATUS.OK).json({
       status: "OK",
       message: "API is healthy!",

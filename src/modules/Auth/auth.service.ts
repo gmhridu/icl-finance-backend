@@ -5,12 +5,17 @@ import {
   ForbiddenException,
   InternalServerException,
   NotFoundException,
+  UnauthorizedException,
 } from "@/utils/app-error";
 import { Env } from "@/config/env.config";
 import { SignOptions } from "jsonwebtoken";
 import { UserServices } from "@/modules/User/user.service";
 import { TLoginUser, TRegisterUser } from "@/modules/Auth/auth.interface";
-import { createToken, verifyToken } from "@/modules/Auth/auth.utils";
+import {
+  createToken,
+  IJwtPayload,
+  verifyToken,
+} from "@/modules/Auth/auth.utils";
 
 const registerUser = async (payload: TRegisterUser) => {
   try {
@@ -66,13 +71,13 @@ const loginUser = async (payload: TLoginUser) => {
   const accessToken = createToken(
     jwtPayload,
     Env.JWT_ACCESS_SECRET,
-    Env.JWT_ACCESS_EXPIRES_IN as SignOptions["expiresIn"]
+    Env.JWT_ACCESS_EXPIRES_IN
   );
 
   const refreshToken = createToken(
     jwtPayload,
     Env.JWT_REFRESH_SECRET,
-    Env.JWT_REFRESH_EXPIRES_IN as SignOptions["expiresIn"]
+    Env.JWT_REFRESH_EXPIRES_IN
   );
 
   return {
@@ -82,39 +87,49 @@ const loginUser = async (payload: TLoginUser) => {
 };
 
 const refreshToken = async (token: string) => {
-  // checking if the given token is valid
-  const decoded = verifyToken(token, Env.JWT_REFRESH_SECRET);
+  let decoded: IJwtPayload;
 
-  const { userId } = decoded;
+  try {
+    decoded = verifyToken(token, Env.JWT_REFRESH_SECRET);
+  } catch (error) {
+    throw error;
+  }
 
-  const user = await UserServices.getUserById(userId);
+  let lastUsed: number;
+
+  try {
+    lastUsed = parseInt(decoded.state, 10);
+  } catch {
+    throw new UnauthorizedException("Corrupted token state");
+  }
+
+  if (decoded.iat! <= lastUsed) {
+    throw new UnauthorizedException("Refresh token already used");
+  }
+
+  const user = await UserServices.getUserById(decoded.userId);
 
   if (!user) {
     throw new NotFoundException("This user is not found!");
   }
 
-  const { status } = user;
-
-  if (status === "suspended") {
-    throw new ForbiddenException("This user is suspended");
-  }
-  if (status === "banned") {
-    throw new ForbiddenException("This user is banned");
-  }
-
-  const jwtPayload = {
-    userId: user.id,
-    number: user.phone,
-  };
-
+  const newPayload = { userId: user.id, number: user.phone };
   const accessToken = createToken(
-    jwtPayload,
+    newPayload,
     Env.JWT_ACCESS_SECRET,
-    Env.JWT_ACCESS_EXPIRES_IN as SignOptions["expiresIn"]
+    Env.JWT_ACCESS_EXPIRES_IN
+  );
+  const refreshToken = createToken(
+    newPayload,
+    Env.JWT_REFRESH_SECRET,
+    Env.JWT_REFRESH_EXPIRES_IN,
+    {},
+    decoded.iat!
   );
 
   return {
     accessToken,
+    refreshToken,
   };
 };
 
