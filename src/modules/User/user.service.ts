@@ -19,8 +19,17 @@ const createUser = async (payload: TRegisterUser) => {
   return await db.insert(users).values(payload).returning();
 };
 
+const changeUserPassword = async (userId: string, password: string) => {
+  return await db
+    .update(users)
+    .set({ password })
+    .where(eq(users.id, userId))
+    .returning();
+};
+
 export const UserServices = {
   getUserFromDB,
   getUserById,
   createUser,
+  changeUserPassword,
 };

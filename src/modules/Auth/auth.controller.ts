@@ -2,9 +2,9 @@ import { Env } from "@/config/env.config";
 import { HTTPSTATUS } from "@/config/http.config";
 import { asyncHandler } from "@/middlewares/asyncHandler.middleware";
 import { AuthServices } from "@/modules/Auth/auth.service";
+import { IJwtPayload } from "@/modules/Auth/auth.utils";
 import { UnauthorizedException } from "@/utils/app-error";
 import sendResponse from "@/utils/sendResponse";
-import ms from "ms";
 
 const registerUser = asyncHandler(async (req, res) => {
   const result = await AuthServices.registerUser(req.body);
@@ -62,8 +62,22 @@ const refreshToken = asyncHandler(async (req, res) => {
   });
 });
 
+const changePassword = asyncHandler(async (req, res) => {
+  const { ...passwordData } = req.body;
+
+  const result = await AuthServices.changePassword(req.user! as IJwtPayload, passwordData);
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "Password updated successfully!",
+    data: result,
+  });
+});
+
 export const AuthControllers = {
   registerUser,
   loginUser,
   refreshToken,
+  changePassword,
 };

@@ -8,7 +8,7 @@ import {
   UnauthorizedException,
 } from "@/utils/app-error";
 import { Env } from "@/config/env.config";
-import { SignOptions } from "jsonwebtoken";
+import { JwtPayload, SignOptions } from "jsonwebtoken";
 import { UserServices } from "@/modules/User/user.service";
 import { TLoginUser, TRegisterUser } from "@/modules/Auth/auth.interface";
 import {
@@ -133,8 +133,40 @@ const refreshToken = async (token: string) => {
   };
 };
 
+const changePassword = async (
+  userData: IJwtPayload,
+  payload: {
+    oldPassword: string;
+    newPassword: string;
+  }
+) => {
+  // checking if the user is exists
+  const user = await UserServices.getUserById(userData.userId);
+
+  if (!user) throw new NotFoundException("This user is not found!");
+
+  const { status } = user;
+
+  if (status === "suspended")
+    throw new ForbiddenException("This user is suspended");
+  if (status === "banned") throw new ForbiddenException("This user is banned");
+
+  if (!(await bcrypt.compare(payload.oldPassword, user.password))) {
+    throw new ForbiddenException("Password do not matched!");
+  }
+
+  // updating the password
+  const saltRound = 10;
+  const newHashPassword = await bcrypt.hash(payload.newPassword, saltRound);
+
+  await UserServices.changeUserPassword(userData.userId, newHashPassword);
+
+  return null;
+};
+
 export const AuthServices = {
   registerUser,
   loginUser,
   refreshToken,
+  changePassword,
 };
