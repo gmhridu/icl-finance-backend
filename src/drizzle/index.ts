@@ -21,3 +21,4 @@ export * from "@/drizzle/schema/systemNotifications.schema";
 export * from "@/drizzle/schema/adminUsers.schema";
 export * from "@/drizzle/schema/auditLogs.schema";
 export * from "@/drizzle/schema/settings.schema";
+export * from "@/drizzle/schema/refreshTokens.schema";

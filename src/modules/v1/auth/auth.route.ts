@@ -1,7 +1,7 @@
-import { AuthControllers } from "@/modules/Auth/auth.controller";
+import { AuthControllers } from "@/modules/v1/auth/auth.controller";
 import validateRequest from "@/middlewares/validateRequest.middleware";
 import { Router } from "express";
-import { UserValidations } from "../User/user.validation";
+import { UserValidations } from "../user/user.validation";
 import auth from "@/middlewares/auth.middleware";
 
 const router: Router = Router();
@@ -18,11 +18,7 @@ router.post(
   AuthControllers.loginUser
 );
 
-router.post(
-  "/refresh-token",
-  validateRequest(UserValidations.refreshTokenValidationSchema),
-  AuthControllers.refreshToken
-);
+router.get("/refresh-access-token", AuthControllers.refreshAccessToken);
 
 router.post(
   "/change-password",
@@ -30,5 +26,7 @@ router.post(
   validateRequest(UserValidations.changePasswordValidationSchema),
   AuthControllers.changePassword
 );
+
+router.post("/logout", AuthControllers.logout);
 
 export default router;

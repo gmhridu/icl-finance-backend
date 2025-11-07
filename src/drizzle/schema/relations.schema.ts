@@ -18,6 +18,7 @@ import { passwordResets } from "./passwordResets.schema";
 import { whatsappOtps } from "./whatsAppOtps.schema";
 import { plans } from "./plans.schema";
 import { adminWallets } from "./adminWallets.schema";
+import { refreshTokens } from "./refreshTokens.schema";
 
 export const adminUsersRelations = relations(adminUsers, ({ many }) => ({
   auditLogs: many(auditLogs),
@@ -98,6 +99,7 @@ export const usersRelations = relations(users, ({ one, many }) => ({
   // Security
   passwordResets: many(passwordResets),
   whatsappOtps: many(whatsappOtps),
+  refreshTokens: many(refreshTokens),
 
   // Logs
   activityLogs: many(activityLogs),
@@ -338,6 +340,15 @@ export const passwordResetsRelations = relations(passwordResets, ({ one }) => ({
 export const whatsappOtpsRelations = relations(whatsappOtps, ({ one }) => ({
   user: one(users, {
     fields: [whatsappOtps.userId],
+    references: [users.id],
+  }),
+}));
+
+// ---------------- REFRESH TOKEN RELATIONS ---------------- //
+
+export const refreshTokensRelations = relations(refreshTokens, ({ one }) => ({
+  user: one(users, {
+    fields: [refreshTokens.userId],
     references: [users.id],
   }),
 }));

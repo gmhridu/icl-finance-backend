@@ -40,9 +40,18 @@ const changePasswordValidationSchema = z.object({
   }),
 });
 
+const updateProfileValidationSchema = z.object({
+  body: z.object({
+    name: z.string().min(3, { message: "Name must be at least 3 characters long!" }).optional(),
+    email: z.email({ message: "Input Valid Email Address!" }).optional(),
+    phone: z.string().min(10, { message: "Phone must be at least 10 characters long!" }).optional(),
+  }),
+});
+
 export const UserValidations = {
   registerUserValidationSchema,
   loginUserValidationSchema,
   refreshTokenValidationSchema,
   changePasswordValidationSchema,
+  updateProfileValidationSchema,
 };
