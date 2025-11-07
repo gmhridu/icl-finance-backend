@@ -72,7 +72,7 @@ const validateRefreshToken = async (
 ): Promise<boolean> => {
   // Get refresh token where token and userId match
   const refreshToken = await db.query.refreshTokens.findFirst({
-    where: (rt) => eq(rt.userId, userId) && eq(rt.token, token),
+    where: (rt) => eq(rt.userId, userId) && eq(rt.token, token) && eq(rt.used, false),
   });
 
   // Check if token exists
