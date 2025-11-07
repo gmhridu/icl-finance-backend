@@ -27,9 +27,41 @@ const changeUserPassword = async (userId: string, password: string) => {
     .returning();
 };
 
+const getMe = async (userId: string) => {
+  return await db.query.users.findFirst({
+    where: (u) => eq(u.id, userId),
+    columns: {
+      id: true,
+      name: true,
+      email: true,
+      phone: true,
+      emailVerified: true,
+      phoneVerified: true,
+      referralCode: true,
+      referredBy: true,
+      status: true,
+      walletBalance: true,
+      totalEarnings: true,
+      commissionBalance: true,
+      securityRefund: true,
+      depositPaid: true,
+      positionLevelId: true,
+      currentPositionId: true,
+      previousPositionId: true,
+      positionStartDate: true,
+      positionEndDate: true,
+      isIntern: true,
+      fundPassword: true,
+      referredByActivityId: true,
+      isActive: true,
+    },
+  });
+};
+
 export const UserServices = {
   getUserFromDB,
   getUserById,
   createUser,
   changeUserPassword,
+  getMe,
 };

@@ -103,6 +103,37 @@ const resetPassword = asyncHandler(async (req, res) => {
   });
 });
 
+const getMe = asyncHandler(async (req, res) => {
+  const id = (req.user! as IJwtPayload)?.userId;
+
+  const result = await AuthServices.getMe(id as string);
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "User Details retrieved successfully!",
+    data: result,
+  });
+});
+
+const logout = asyncHandler(async (req, res) => {
+  const id = (req.user! as IJwtPayload)?.userId;
+  await AuthServices.logout(id as string);
+
+  res.clearCookie("refreshToken", {
+    secure: Env.NODE_ENV === "production",
+    httpOnly: true,
+    sameSite: "lax",
+  });
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "User logged out successfully!",
+    data: null,
+  });
+});
+
 export const AuthControllers = {
   registerUser,
   loginUser,
@@ -110,4 +141,6 @@ export const AuthControllers = {
   changePassword,
   forgetPassword,
   resetPassword,
+  getMe,
+  logout,
 };

@@ -225,6 +225,14 @@ const resetPassword = async (
   await UserServices.changeUserPassword(user.id, newHashPassword);
 };
 
+const getMe = async (userId: string) => {
+  return await UserServices.getUserById(userId);
+};
+
+const logout = async(userId: string) => {
+  return null;
+}
+
 export const AuthServices = {
   registerUser,
   loginUser,
@@ -232,4 +240,6 @@ export const AuthServices = {
   changePassword,
   forgetPassword,
   resetPassword,
+  getMe,
+  logout
 };
