@@ -1,0 +1,1 @@
+ALTER TABLE "bank_cards" ADD CONSTRAINT "bank_cards_account_number_unique" UNIQUE("account_number");

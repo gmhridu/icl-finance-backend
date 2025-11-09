@@ -17,8 +17,7 @@ tokenService
 import { users } from "@/drizzle/schema/users.schema";
 import { eq } from "drizzle-orm";
 import { db } from "@/config/db";
-import { decrypt } from "@/utils/encrypt";
-import { IJwtPayload } from "../token/token.interface";
+import { IJwtPayload } from "@/modules/v1/token/token.interface";
 
 const registerUser = async (payload: TRegisterUser) => {
   try {
@@ -156,7 +155,7 @@ const refreshAccessToken = async (token: string, ipAddress?: string, userAgent?:
   }
 
   // Get user
-  const user = await UserServices.getUserById(decoded.userId);
+  const user = await UserServices.getUserProfile(decoded.userId);
   if (!user) {
     throw new NotFoundException("User not found");
   }
@@ -230,7 +229,7 @@ const changePassword = async (
   }
 
   // Get user
-  const user = await UserServices.getUserById(userData.userId);
+  const user = await UserServices.getUserProfile(userData.userId);
   if (!user) throw new NotFoundException("User not found");
 
   // Check user status

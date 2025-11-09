@@ -1,0 +1,1 @@
+ALTER TABLE "bank_cards" DROP CONSTRAINT "bank_cards_account_number_unique";

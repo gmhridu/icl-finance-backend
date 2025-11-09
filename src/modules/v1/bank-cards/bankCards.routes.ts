@@ -1,0 +1,16 @@
+import auth from "@/middlewares/auth.middleware";
+import { Router } from "express";
+import { BankCardsControllers } from "./bankCards.controller";
+import validateRequest from "@/middlewares/validateRequest.middleware";
+import { BankCardsValidations } from "./bankCards.validation";
+
+const router = Router();
+
+router.post(
+  "/add-bank-card",
+  auth(),
+  validateRequest(BankCardsValidations.bankCardSchema),
+  BankCardsControllers.addBankCard
+);
+
+export const BankCardRouter = router;

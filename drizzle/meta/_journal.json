@@ -22,6 +22,34 @@
       "when": 1762509576397,
       "tag": "0002_tiny_kylun",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1762603465799,
+      "tag": "0003_amused_proteus",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1762604123944,
+      "tag": "0004_vengeful_argent",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1762605145523,
+      "tag": "0005_nervous_northstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1762605528332,
+      "tag": "0006_marvelous_tigra",
+      "breakpoints": true
     }
   ]
 }

@@ -10,7 +10,7 @@ const getUserFromDB = async (phone: string) => {
   });
 };
 
-const getUserById = async (id: string) => {
+const getUserProfile = async (id: string) => {
   return await db.query.users.findFirst({
     where: (u) => eq(u.id, id),
   });
@@ -44,9 +44,11 @@ const changeUserPassword = async (userId: string, password: string) => {
     .returning();
 };
 
+
+
 export const UserServices = {
   getUserFromDB,
-  getUserById,
+  getUserProfile,
   getAllUsers,
   createUser,
   updateUser,

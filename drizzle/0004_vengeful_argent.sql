@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX "uq_bank_cards_user_account" ON "bank_cards" USING btree (user_id, lower(account_number));

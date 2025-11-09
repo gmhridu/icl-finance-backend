@@ -3,6 +3,7 @@ import { pgTable } from "drizzle-orm/pg-core";
 import * as t from "drizzle-orm/pg-core";
 import { users } from "./users.schema";
 import { index } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
 
 export const bankTypeEnum = pgEnum("bank_type", [
   "JAZZCASH",
@@ -33,5 +34,10 @@ export const bankCards = pgTable(
   (table) => [
     index("idx_bank_cards_user_id").on(table.userId),
     index("idx_bank_cards_active").on(table.isActive),
+    index("idx_bank_cards_user_bank").on(
+      table.userId,
+      table.bankName,
+      sql`lower(${table.accountNumber})`
+    ),
   ]
 );

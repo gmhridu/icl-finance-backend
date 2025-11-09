@@ -20,7 +20,7 @@ const getProfile = asyncHandler(async (req: CustomRequest, res) => {
 
   Logger.info("Fetching user profile", { userId });
 
-  const result = await UserServices.getUserById(userId);
+  const result = await UserServices.getUserProfile(userId);
 
   if (!result) {
     throw new NotFoundException("User not found");
@@ -59,7 +59,7 @@ const getUserById = asyncHandler(async (req, res) => {
 
   Logger.info("Fetching user by ID", { userId: id });
 
-  const result = await UserServices.getUserById(id);
+  const result = await UserServices.getUserProfile(id);
 
   if (!result) {
     throw new NotFoundException("User not found");

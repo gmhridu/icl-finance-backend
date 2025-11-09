@@ -18,7 +18,7 @@ declare global {
 const auth = () => {
   return asyncHandler(async (req, _res, next) => {
     const accessToken = req.cookies?.__iclat__ || req.header("x-access-token");
-    
+
     if (!accessToken) {
       throw new UnauthorizedException("Access token is required");
     }
@@ -26,7 +26,10 @@ const auth = () => {
     // Verify token
     let decoded: IJwtPayload;
     try {
-      decoded = tokenService.verifyToken(accessToken, Env.JWT_ACCESS_SECRET) as IJwtPayload;
+      decoded = tokenService.verifyToken(
+        accessToken,
+        Env.JWT_ACCESS_SECRET
+      ) as IJwtPayload;
     } catch (error: any) {
       if (error.name === "TokenExpiredError") {
         throw new UnauthorizedException("Access token has expired");
@@ -41,7 +44,7 @@ const auth = () => {
     const { userId } = decoded;
 
     // Fetch user from database
-    const user = await UserServices.getUserById(userId);
+    const user = await UserServices.getUserProfile(userId);
     if (!user) {
       throw new UnauthorizedException("User not found");
     }
