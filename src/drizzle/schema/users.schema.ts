@@ -47,16 +47,13 @@ export const users = pgTable(
     depositPaid: t.integer("deposit_paid").notNull().default(0),
 
     // Position fields
-    positionLevelId: t
-      .uuid("position_level_id")
-      .references(() => positionLevels.id, { onDelete: "set null" }),
     currentPositionId: t
       .uuid("current_position_id")
       .references(() => positionLevels.id, { onDelete: "set null" }),
     previousPositionId: t
       .uuid("previous_position_id")
       .references(() => positionLevels.id, { onDelete: "set null" }),
-    positionStartDate: t.timestamp("position_start_date"),
+    positionStartDate: t.timestamp("position_start_date").defaultNow(),
     positionEndDate: t.timestamp("position_end_date"),
     isIntern: t.boolean("is_intern").notNull().default(true),
 
@@ -93,7 +90,8 @@ export const users = pgTable(
     index("idx_users_status").on(table.status),
     index("idx_users_referral_code").on(table.referralCode),
     index("idx_users_referred_by").on(table.referredBy),
-    index("idx_users_position_level").on(table.positionLevelId),
+    index("idx_users_position_level").on(table.currentPositionId),
+    index("idx_users_previous_position_level").on(table.previousPositionId),
   ]
 );
 
@@ -122,38 +120,6 @@ export const userProfiles = pgTable(
   (table) => [index("idx_user_profiles_user_id").on(table.userId)]
 );
 
-export const userOffers = pgTable(
-  "user_offers",
-  {
-    id: t.uuid("id").defaultRandom().primaryKey(),
-    userId: t
-      .uuid("user_id")
-      .notNull()
-      .references(() => users.id, { onDelete: "cascade" }),
-    announcementId: t
-      .uuid("announcement_id")
-      .references(() => announcements.id, { onDelete: "set null" }),
-    offerType: t.varchar("offer_type", { length: 100 }),
-    offerValue: t.varchar("offer_value", { length: 255 }),
-    offerCode: t.varchar("offer_code", { length: 100 }),
-    description: t.text("description"),
-    isRedeemed: t.boolean("is_redeemed").notNull().default(false),
-    redeemedAt: t.timestamp("redeemed_at"),
-    expiresAt: t.timestamp("expires_at"),
-    scheduledAt: t.timestamp("scheduled_at"),
-    createdAt: t.timestamp("created_at").notNull().defaultNow(),
-    updatedAt: t
-      .timestamp("updated_at")
-      .notNull()
-      .defaultNow()
-      .$onUpdate(() => new Date()),
-  },
-  (table) => [
-    index("idx_user_offers_user_id").on(table.userId),
-    index("idx_user_offers_expires_at").on(table.expiresAt),
-    index("idx_user_offers_redeemed").on(table.isRedeemed),
-  ]
-);
 
 export const userPlans = pgTable(
   "user_plans",

@@ -44,6 +44,13 @@ const changeUserPassword = async (userId: string, password: string) => {
     .returning();
 };
 
+// find user by referral code
+const findUserByReferralCode = async (referralCode: string) => {
+  return await db.query.users.findFirst({
+    where: (u) => eq(u.referralCode, referralCode),
+  });
+};
+
 export const UserServices = {
   getUserFromDB,
   getUserById,
@@ -51,6 +58,7 @@ export const UserServices = {
   createUser,
   updateUser,
   changeUserPassword,
+  findUserByReferralCode,
 };
 
 export type TUser = InferSelectModel<typeof users>;

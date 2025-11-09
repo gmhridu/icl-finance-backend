@@ -22,6 +22,20 @@
       "when": 1762509576397,
       "tag": "0002_tiny_kylun",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1762714610637,
+      "tag": "0003_cuddly_thunderbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1762715046022,
+      "tag": "0004_lumpy_havok",
+      "breakpoints": true
     }
   ]
 }

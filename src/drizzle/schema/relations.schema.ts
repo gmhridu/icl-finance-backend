@@ -7,7 +7,7 @@ import { announcements, userAnnouncements } from "./announcements.schema";
 import { topupRequests } from "./topuprequests.schema";
 import { withdrawalRequests } from "./withdrawalRequests.schema";
 import { securityRefundRequests } from "./securityRefundRequests.schema";
-import { userOffers, userPlans, userProfiles, users } from "./users.schema";
+import { userPlans, userProfiles, users } from "./users.schema";
 import { positionLevels } from "./positionLevels.schema";
 import { bankCards } from "./bankCards.schema";
 import { referralActivities, referralHierarchy } from "./referrals.schema";
@@ -49,11 +49,6 @@ export const usersRelations = relations(users, ({ one, many }) => ({
   referrals: many(users, { relationName: "referrals" }),
 
   // Position levels
-  positionLevel: one(positionLevels, {
-    fields: [users.positionLevelId],
-    references: [positionLevels.id],
-    relationName: "currentPosition",
-  }),
   currentPosition: one(positionLevels, {
     fields: [users.currentPositionId],
     references: [positionLevels.id],
@@ -94,7 +89,6 @@ export const usersRelations = relations(users, ({ one, many }) => ({
 
   // Announcements and offers
   userAnnouncements: many(userAnnouncements),
-  userOffers: many(userOffers),
 
   // Security
   passwordResets: many(passwordResets),
@@ -118,7 +112,6 @@ export const userProfilesRelations = relations(userProfiles, ({ one }) => ({
 export const positionLevelsRelations = relations(
   positionLevels,
   ({ many }) => ({
-    users: many(users, { relationName: "currentPosition" }),
     currentPositionUsers: many(users, { relationName: "userCurrentPosition" }),
     previousPositionUsers: many(users, {
       relationName: "userPreviousPosition",
@@ -299,7 +292,6 @@ export const announcementsRelations = relations(
       references: [adminUsers.id],
     }),
     userAnnouncements: many(userAnnouncements),
-    userOffers: many(userOffers),
   })
 );
 
@@ -316,17 +308,6 @@ export const userAnnouncementsRelations = relations(
     }),
   })
 );
-
-export const userOffersRelations = relations(userOffers, ({ one }) => ({
-  user: one(users, {
-    fields: [userOffers.userId],
-    references: [users.id],
-  }),
-  announcement: one(announcements, {
-    fields: [userOffers.announcementId],
-    references: [announcements.id],
-  }),
-}));
 
 // ---------------- SECURITY RELATIONS ---------------- //
 

@@ -11,14 +11,13 @@ import {
 import { Env } from "@/config/env.config";
 import { UserServices } from "@/modules/v1/user/user.service";
 import { TLoginUser, TRegisterUser } from "@/modules/v1/auth/auth.interface";
-import {
-tokenService
-} from "@/modules/v1/token/token.service";
+import { tokenService } from "@/modules/v1/token/token.service";
 import { users } from "@/drizzle/schema/users.schema";
 import { eq } from "drizzle-orm";
 import { db } from "@/config/db";
-import { decrypt } from "@/utils/encrypt";
 import { IJwtPayload } from "../token/token.interface";
+import { generateReferralCode } from "@/utils/helpers";
+import { positionService } from "../position/position.service";
 
 const registerUser = async (payload: TRegisterUser) => {
   try {
@@ -32,10 +31,34 @@ const registerUser = async (payload: TRegisterUser) => {
     // Hash password
     const saltRounds = 12;
     const hashedPassword = await bcrypt.hash(payload.password, saltRounds);
+    // Generate unique referral code
+    const referralCode = generateReferralCode();
+
+    if (!referralCode) {
+      throw new InternalServerException("Failed to generate referral code");
+    }
+
+    // referred by
+    let referredBy;
+    if (payload?.referralCode){
+      const referrer = await UserServices.findUserByReferralCode(payload.referralCode);
+      if (referrer) {
+        referredBy = referrer?.id
+      }
+    }
+
+    const internPosition = await positionService.getPositionByName("Intern");
+
+    if (!internPosition) {
+      throw new InternalServerException("Intern position not found.");
+    }
 
     // Create user
     const [newUser] = await UserServices.createUser({
       ...payload,
+      referralCode,
+      referredBy,
+      currentPositionId: internPosition.id,
       password: hashedPassword,
     });
 
@@ -44,6 +67,7 @@ const registerUser = async (payload: TRegisterUser) => {
       name: newUser.name,
       email: newUser.email,
       phone: newUser.phone,
+      currentPositionId: newUser.currentPositionId,
       status: newUser.status,
       createdAt: newUser.createdAt,
     };
@@ -53,7 +77,11 @@ const registerUser = async (payload: TRegisterUser) => {
   }
 };
 
-const loginUser = async (payload: TLoginUser, ipAddress?: string, userAgent?: string) => {
+const loginUser = async (
+  payload: TLoginUser,
+  ipAddress?: string,
+  userAgent?: string
+) => {
   // Validate input
   if (!payload.phone && !payload.email) {
     throw new BadRequestException("Phone or email is required");
@@ -118,7 +146,9 @@ const loginUser = async (payload: TLoginUser, ipAddress?: string, userAgent?: st
   );
 
   // Store refresh token in database
-  const refreshTokenExpiresAt = new Date(Date.now() + Env.JWT_REFRESH_EXPIRES_IN_MS);
+  const refreshTokenExpiresAt = new Date(
+    Date.now() + Env.JWT_REFRESH_EXPIRES_IN_MS
+  );
   await tokenService.storeRefreshToken(
     user.id,
     refreshToken,
@@ -140,7 +170,11 @@ const loginUser = async (payload: TLoginUser, ipAddress?: string, userAgent?: st
   };
 };
 
-const refreshAccessToken = async (token: string, ipAddress?: string, userAgent?: string) => {
+const refreshAccessToken = async (
+  token: string,
+  ipAddress?: string,
+  userAgent?: string
+) => {
   // Verify refresh token
   let decoded: IJwtPayload;
   try {
@@ -150,7 +184,10 @@ const refreshAccessToken = async (token: string, ipAddress?: string, userAgent?:
   }
 
   // Validate refresh token against database
-  const isValid = await tokenService.validateRefreshToken(token, decoded.userId);
+  const isValid = await tokenService.validateRefreshToken(
+    token,
+    decoded.userId
+  );
   if (!isValid) {
     throw new UnauthorizedException("Invalid or expired refresh token");
   }
@@ -193,7 +230,9 @@ const refreshAccessToken = async (token: string, ipAddress?: string, userAgent?:
   );
 
   // Store new refresh token in database
-  const refreshTokenExpiresAt = new Date(Date.now() + Env.JWT_REFRESH_EXPIRES_IN_MS);
+  const refreshTokenExpiresAt = new Date(
+    Date.now() + Env.JWT_REFRESH_EXPIRES_IN_MS
+  );
   await tokenService.storeRefreshToken(
     user.id,
     refreshToken,

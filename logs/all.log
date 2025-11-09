@@ -459,3 +459,190 @@
 {"level":"http","message":"GET /api/v1/user 200 5ms","timestamp":"2025-11-07 22:13:30"}
 {"level":"error","message":"Access token is required","name":"Error","query":{},"stack":"Error: Access token is required\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\auth.middleware.ts:23:13\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:13\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:295:15\n    at processParams (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:291:5)","timestamp":"2025-11-07 22:17:54","user":"anonymous"}
 {"level":"http","message":"POST /api/v1/auth/logout 401 4ms","timestamp":"2025-11-07 22:17:54"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-07 22:18:42"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-07 22:18:42"}
+{"level":"info","message":"User logged out successfully","timestamp":"2025-11-07 22:18:42"}
+{"level":"http","message":"POST /api/v1/auth/logout 200 17ms","timestamp":"2025-11-07 22:18:42"}
+{"level":"error","message":"Access token is required","name":"Error","query":{},"stack":"Error: Access token is required\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\auth.middleware.ts:23:13\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:13\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:295:15\n    at processParams (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:291:5)","timestamp":"2025-11-07 22:19:02","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/user 401 7ms","timestamp":"2025-11-07 22:19:02"}
+{"body":{"phone":"01905147305"},"level":"error","message":"Cannot POST /api/v1/auth/forget-password","name":"Error","query":{},"stack":"Error: Cannot POST /api/v1/auth/forget-password\n    at notFoundHandler (C:\\client-projects\\icl-finance-backend\\src\\middlewares\\notFound.middleware.ts:10:8)\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at trimPrefix (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:342:13)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:297:9\n    at processParams (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:291:5)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:688:15\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:276:14)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:688:15\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:276:14)","timestamp":"2025-11-07 22:22:00","user":"anonymous"}
+{"level":"http","message":"POST /api/v1/auth/forget-password 404 13ms","timestamp":"2025-11-07 22:22:00"}
+{"level":"info","message":"User login attempt","phone":"01735794662","timestamp":"2025-11-07 22:23:46"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-07 22:23:47","userId":"6759c723-b531-4a1c-b68a-44b3fb864542"}
+{"level":"http","message":"POST /api/v1/auth/login 200 230ms","timestamp":"2025-11-07 22:23:47"}
+{"level":"info","message":"Fetching all users","timestamp":"2025-11-07 22:23:57"}
+{"level":"http","message":"GET /api/v1/user 200 8ms","timestamp":"2025-11-07 22:23:57"}
+{"level":"info","message":"User logged out successfully","timestamp":"2025-11-07 22:25:09"}
+{"level":"http","message":"POST /api/v1/auth/logout 200 8ms","timestamp":"2025-11-07 22:25:09"}
+{"level":"error","message":"Access token is required","name":"Error","query":{},"stack":"Error: Access token is required\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\auth.middleware.ts:23:13\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:13\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:295:15\n    at processParams (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:291:5)","timestamp":"2025-11-07 22:25:19","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/user 401 2ms","timestamp":"2025-11-07 22:25:19"}
+{"level":"error","message":"No refresh token","name":"Error","query":{},"stack":"Error: No refresh token\n    at C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\auth\\auth.controller.ts:66:31\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:13\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:295:15\n    at processParams (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:291:5)","timestamp":"2025-11-07 22:25:53","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/auth/refresh-access-token 401 4ms","timestamp":"2025-11-07 22:25:53"}
+{"level":"info","message":"User login attempt","phone":"01735794662","timestamp":"2025-11-07 22:28:17"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-07 22:28:17","userId":"6759c723-b531-4a1c-b68a-44b3fb864542"}
+{"level":"http","message":"POST /api/v1/auth/login 200 215ms","timestamp":"2025-11-07 22:28:17"}
+{"level":"info","message":"Fetching all users","timestamp":"2025-11-07 22:29:22"}
+{"level":"http","message":"GET /api/v1/user 200 4ms","timestamp":"2025-11-07 22:29:22"}
+{"level":"info","message":"Refresh token attempt","timestamp":"2025-11-07 22:30:37"}
+{"level":"info","message":"Token refreshed successfully","timestamp":"2025-11-07 22:30:37"}
+{"level":"http","message":"GET /api/v1/auth/refresh-access-token 200 17ms","timestamp":"2025-11-07 22:30:37"}
+{"level":"info","message":"Fetching all users","timestamp":"2025-11-07 22:32:52"}
+{"level":"http","message":"GET /api/v1/user 200 6ms","timestamp":"2025-11-07 22:32:52"}
+{"level":"info","message":"Refresh token attempt","timestamp":"2025-11-07 22:33:14"}
+{"level":"error","message":"Invalid or expired refresh token","name":"Error","query":{},"stack":"Error: Invalid or expired refresh token\n    at Object.refreshAccessToken (C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\auth\\auth.service.ts:155:11)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\auth\\auth.controller.ts:75:5\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-07 22:33:14","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/auth/refresh-access-token 401 6ms","timestamp":"2025-11-07 22:33:14"}
+{"level":"info","message":"User login attempt","phone":"01735794662","timestamp":"2025-11-07 22:35:43"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-07 22:35:43","userId":"6759c723-b531-4a1c-b68a-44b3fb864542"}
+{"level":"http","message":"POST /api/v1/auth/login 200 218ms","timestamp":"2025-11-07 22:35:43"}
+{"level":"info","message":"Refresh token attempt","timestamp":"2025-11-07 22:35:54"}
+{"level":"info","message":"Token refreshed successfully","timestamp":"2025-11-07 22:35:54"}
+{"level":"http","message":"GET /api/v1/auth/refresh-access-token 200 11ms","timestamp":"2025-11-07 22:35:54"}
+{"level":"info","message":"Fetching all users","timestamp":"2025-11-07 22:36:40"}
+{"level":"http","message":"GET /api/v1/user 200 5ms","timestamp":"2025-11-07 22:36:40"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 23:05:25"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 23:05:25"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 23:05:39"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 23:05:39"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 23:07:14"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 23:07:14"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 23:07:19"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 23:07:19"}
+{"level":"info","message":"User login attempt","phone":"01735794662","timestamp":"2025-11-09 23:14:53"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-09 23:14:53","userId":"6759c723-b531-4a1c-b68a-44b3fb864542"}
+{"level":"http","message":"POST /api/v1/auth/login 200 425ms","timestamp":"2025-11-09 23:14:53"}
+{"level":"info","message":"Fetching all positions","timestamp":"2025-11-09 23:14:58"}
+{"level":"http","message":"GET /api/v1/positions 200 7ms","timestamp":"2025-11-09 23:14:58"}
+{"body":{"accountNumber":"TPGEVrrVCe8fDqHLSiKBxV4gWrgqaTPrzK","bankName":"USDT_TRC20","cardHolderName":"Golam Mahabub Redoy"},"level":"error","message":"Cannot POST /api/v1/pos","name":"Error","query":{},"stack":"Error: Cannot POST /api/v1/pos\n    at notFoundHandler (C:\\client-projects\\icl-finance-backend\\src\\middlewares\\notFound.middleware.ts:10:8)\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at trimPrefix (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:342:13)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:297:9\n    at processParams (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:291:5)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:688:15\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:276:14)\n    at Function.handle (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:186:3)\n    at router (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:60:12)","timestamp":"2025-11-09 23:15:58","user":"anonymous"}
+{"level":"http","message":"POST /api/v1/pos 404 62ms","timestamp":"2025-11-09 23:15:58"}
+{"body":{"accountNumber":"TPGEVrrVCe8fDqHLSiKBxV4gWrgqaTPrzK","bankName":"USDT_TRC20","cardHolderName":"Golam Mahabub Redoy"},"level":"error","message":"Cannot POST /api/v1/pos","name":"Error","query":{},"stack":"Error: Cannot POST /api/v1/pos\n    at notFoundHandler (C:\\client-projects\\icl-finance-backend\\src\\middlewares\\notFound.middleware.ts:10:8)\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at trimPrefix (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:342:13)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:297:9\n    at processParams (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:291:5)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:688:15\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:276:14)\n    at Function.handle (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:186:3)\n    at router (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:60:12)","timestamp":"2025-11-09 23:15:59","user":"anonymous"}
+{"level":"http","message":"POST /api/v1/pos 404 2ms","timestamp":"2025-11-09 23:15:59"}
+{"level":"info","message":"Fetching user current position","timestamp":"2025-11-09 23:16:11","userId":"6759c723-b531-4a1c-b68a-44b3fb864542"}
+{"body":{"accountNumber":"TPGEVrrVCe8fDqHLSiKBxV4gWrgqaTPrzK","bankName":"USDT_TRC20","cardHolderName":"Golam Mahabub Redoy"},"level":"error","message":"Failed to fetch user position","name":"Error","query":{},"stack":"Error: Failed to fetch user position\n    at Function.getUserCurrentPosition (C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\position\\position.service.ts:102:13)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\position\\position.controller.ts:46:24\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-09 23:16:11","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/positions/current 500 10ms","timestamp":"2025-11-09 23:16:11"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 23:54:07"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 23:54:07"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:06:35"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:06:35"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:09:46"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:09:46"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:09:53"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:09:53"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:10:16"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:10:16"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:10:24"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:10:24"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:10:36"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:10:36"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:10:42"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:10:42"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:11:05"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:11:05"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:11:15"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:11:15"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:11:20"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:11:20"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:13:01"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:13:01"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:13:05"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:13:05"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:13:43"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:13:43"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:13:57"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:13:57"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:14:07"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:14:07"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:14:14"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:14:14"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:15:02"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:15:02"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:15:12"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:15:12"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:30:39"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:30:39"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:31:12"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:31:12"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:31:16"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:31:16"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:32:32"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:32:32"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:34:55"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:34:55"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:35:09"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:35:09"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:36:08"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:36:08"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:37:06"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:37:06"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:38:18"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:38:18"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:39:53"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:39:53"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:40:06"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:40:06"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:40:19"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:40:19"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:46:37"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:46:37"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:46:42"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:46:42"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:46:47"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:46:47"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:48:30"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:48:30"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:50:13"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:50:13"}
+{"level":"info","message":"User registration attempt","timestamp":"2025-11-10 00:50:21"}
+{"level":"info","message":"User registered successfully","timestamp":"2025-11-10 00:50:21","userId":"4c780475-5b46-4ab7-ab21-ce3c2ae1225a"}
+{"level":"http","message":"POST /api/v1/auth/register 201 244ms","timestamp":"2025-11-10 00:50:21"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:55:07"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:55:07"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:55:20"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:55:20"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:55:27"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:55:27"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 00:55:48"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 00:55:48"}
+{"level":"info","message":"User login attempt","phone":"01735794663","timestamp":"2025-11-10 00:59:21"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-10 00:59:21","userId":"4c780475-5b46-4ab7-ab21-ce3c2ae1225a"}
+{"level":"http","message":"POST /api/v1/auth/login 200 244ms","timestamp":"2025-11-10 00:59:21"}
+{"level":"info","message":"Fetching user current position","timestamp":"2025-11-10 00:59:30","userId":"4c780475-5b46-4ab7-ab21-ce3c2ae1225a"}
+{"body":{"accountNumber":"TPGEVrrVCe8fDqHLSiKBxV4gWrgqaTPrzK","bankName":"USDT_TRC20","cardHolderName":"Golam Mahabub Redoy"},"level":"error","message":"Failed to fetch user position","name":"Error","query":{},"stack":"Error: Failed to fetch user position\n    at Object.getUserCurrentPosition (C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\position\\position.service.ts:130:11)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\position\\position.controller.ts:46:24\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-10 00:59:30","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/positions/current 500 16ms","timestamp":"2025-11-10 00:59:30"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 01:02:30"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 01:02:30"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 01:02:42"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 01:02:42"}
+{"level":"info","message":"User registration attempt","timestamp":"2025-11-10 01:03:04"}
+{"body":{"name":"Golam Mostafa","password":"1234567","phone":"01735794664"},"level":"error","message":"Failed to register user","name":"Error","query":{},"stack":"Error: Failed to register user\n    at Object.registerUser (C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\auth\\auth.service.ts:76:11)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\auth\\auth.controller.ts:13:18\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-10 01:03:04","user":"anonymous"}
+{"level":"http","message":"POST /api/v1/auth/register 500 36ms","timestamp":"2025-11-10 01:03:04"}
+{"level":"info","message":"User registration attempt","timestamp":"2025-11-10 01:03:35"}
+{"body":{"name":"Golam mahabub","password":"1234567","phone":"01735794664"},"level":"error","message":"Failed to register user","name":"Error","query":{},"stack":"Error: Failed to register user\n    at Object.registerUser (C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\auth\\auth.service.ts:76:11)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\auth\\auth.controller.ts:13:18\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-10 01:03:35","user":"anonymous"}
+{"level":"http","message":"POST /api/v1/auth/register 500 8ms","timestamp":"2025-11-10 01:03:35"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 01:03:56"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 01:03:56"}
+{"level":"info","message":"User login attempt","phone":"01735794663","timestamp":"2025-11-10 01:05:08"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-10 01:05:08","userId":"4c780475-5b46-4ab7-ab21-ce3c2ae1225a"}
+{"level":"http","message":"POST /api/v1/auth/login 200 244ms","timestamp":"2025-11-10 01:05:08"}
+{"level":"info","message":"User registration attempt","timestamp":"2025-11-10 01:05:13"}
+{"level":"info","message":"User registered successfully","timestamp":"2025-11-10 01:05:13","userId":"9fd050a5-9d2a-4512-9bd4-45af49fd283d"}
+{"level":"http","message":"POST /api/v1/auth/register 201 220ms","timestamp":"2025-11-10 01:05:13"}
+{"level":"info","message":"Fetching user current position","timestamp":"2025-11-10 01:06:14","userId":"4c780475-5b46-4ab7-ab21-ce3c2ae1225a"}
+{"body":{"accountNumber":"TPGEVrrVCe8fDqHLSiKBxV4gWrgqaTPrzK","bankName":"USDT_TRC20","cardHolderName":"Golam Mahabub Redoy"},"level":"error","message":"Failed to fetch user position","name":"Error","query":{},"stack":"Error: Failed to fetch user position\n    at Object.getUserCurrentPosition (C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\position\\position.service.ts:130:11)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\position\\position.controller.ts:46:24\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-10 01:06:14","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/positions/current 500 15ms","timestamp":"2025-11-10 01:06:14"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 01:16:38"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 01:16:38"}
+{"body":{"accountNumber":"TPGEVrrVCe8fDqHLSiKBxV4gWrgqaTPrzK","bankName":"USDT_TRC20","cardHolderName":"Golam Mahabub Redoy"},"level":"error","message":"Access token is required","name":"Error","query":{},"stack":"Error: Access token is required\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\auth.middleware.ts:23:13\n    at C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:13\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:157:13)\n    at Route.dispatch (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\route.js:117:3)\n    at handle (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:435:11)\n    at Layer.handleRequest (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\lib\\layer.js:152:17)\n    at C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:295:15\n    at processParams (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:582:12)\n    at next (C:\\client-projects\\icl-finance-backend\\node_modules\\router\\index.js:291:5)","timestamp":"2025-11-10 01:16:41","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/positions/current 401 21ms","timestamp":"2025-11-10 01:16:41"}
+{"level":"info","message":"User login attempt","phone":"01735794663","timestamp":"2025-11-10 01:16:49"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-10 01:16:50","userId":"4c780475-5b46-4ab7-ab21-ce3c2ae1225a"}
+{"level":"http","message":"POST /api/v1/auth/login 200 239ms","timestamp":"2025-11-10 01:16:50"}
+{"level":"info","message":"Fetching user current position","timestamp":"2025-11-10 01:16:54","userId":"4c780475-5b46-4ab7-ab21-ce3c2ae1225a"}
+{"body":{"accountNumber":"TPGEVrrVCe8fDqHLSiKBxV4gWrgqaTPrzK","bankName":"USDT_TRC20","cardHolderName":"Golam Mahabub Redoy"},"level":"error","message":"Failed to fetch user position","name":"Error","query":{},"stack":"Error: Failed to fetch user position\n    at Object.getUserCurrentPosition (C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\position\\position.service.ts:130:11)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async C:\\client-projects\\icl-finance-backend\\src\\modules\\v1\\position\\position.controller.ts:46:24\n    at async C:\\client-projects\\icl-finance-backend\\src\\middlewares\\asyncHandler.middleware.ts:12:7","timestamp":"2025-11-10 01:17:44","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/positions/current 500 49718ms","timestamp":"2025-11-10 01:17:44"}
+{"level":"info","message":"Fetching user current position","timestamp":"2025-11-10 01:17:49","userId":"4c780475-5b46-4ab7-ab21-ce3c2ae1225a"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 01:20:42"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 01:20:42"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 01:30:23"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 01:30:23"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-10 01:30:50"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-10 01:30:50"}
