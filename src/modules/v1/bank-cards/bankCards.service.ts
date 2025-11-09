@@ -220,9 +220,28 @@ const editBankCard = async (
   };
 };
 
+const deleteBankCard = async (userId: string, cardId: string) => {
+  const result = await db
+    .delete(bankCards)
+    .where(
+      and(
+        eq(bankCards.userId, userId),
+        eq(bankCards.id, cardId),
+        eq(bankCards.isActive, true)
+      )
+    )
+    .returning()
+    .then((r) => r[0]);
+
+  if (!result)
+    throw new NotFoundException("Bank card not found or access denied");
+  return result;
+};
+
 export const BankCardsServices = {
   addBankCard,
   getUserBankCards,
   getBankAccountById,
   editBankCard,
+  deleteBankCard,
 };

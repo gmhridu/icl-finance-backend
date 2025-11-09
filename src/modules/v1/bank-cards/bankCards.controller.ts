@@ -78,9 +78,28 @@ const editBankCard = asyncHandler(async (req, res) => {
   });
 });
 
+const deleteBankCard = asyncHandler(async (req, res) => {
+  const userId = req.user?.userId;
+
+  if (!userId) throw new NotFoundException("User not found");
+
+  const result = await BankCardsServices.deleteBankCard(
+    userId,
+    req.params.cardId
+  );
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "Bank card deleted successfully",
+    data: result,
+  });
+});
+
 export const BankCardsControllers = {
   addBankCard,
   getUserBankCards,
   getBankAccountById,
   editBankCard,
+  deleteBankCard,
 };

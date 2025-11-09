@@ -24,4 +24,6 @@ router.patch(
   BankCardsControllers.editBankCard
 );
 
+router.delete("/:cardId", auth(), BankCardsControllers.deleteBankCard);
+
 export const BankCardRouter = router;
