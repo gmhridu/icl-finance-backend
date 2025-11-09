@@ -1,7 +1,11 @@
 import { db } from "@/config/db";
-import { TBankCard, TBankCardWithUser } from "./bankCards.interface";
-import { and, eq, ilike } from "drizzle-orm";
-import { ConflictException } from "@/utils/app-error";
+import {
+  TBankCard,
+  TBankCardWithUser,
+  TEditBankCardPayload,
+} from "./bankCards.interface";
+import { and, eq, ilike, ne } from "drizzle-orm";
+import { ConflictException, NotFoundException } from "@/utils/app-error";
 import { bankCards, users } from "@/drizzle";
 import { maskAccountNumber, normalizeAccount } from "./bankCard.utils";
 
@@ -112,8 +116,113 @@ const getBankAccountById = async (payload: {
   };
 };
 
+const editBankCard = async (
+  payload: TEditBankCardPayload
+): Promise<TBankCardWithUser> => {
+  const { cardId, userId, cardHolderName, accountNumber } = payload;
+
+  // check is card is exist
+  const existingCard = await db
+    .select({
+      id: bankCards.id,
+      userId: bankCards.userId,
+      bankName: bankCards.bankName,
+      currentAccountNumber: bankCards.accountNumber,
+    })
+    .from(bankCards)
+    .where(
+      and(
+        eq(bankCards.id, cardId),
+        eq(bankCards.userId, userId),
+        eq(bankCards.isActive, true)
+      )
+    )
+    .limit(1)
+    .then((r) => r[0]);
+
+  if (!existingCard)
+    throw new NotFoundException("Bank card not found or access denied");
+
+  const updateData: Partial<typeof bankCards.$inferInsert> = {};
+
+  if (cardHolderName !== undefined) {
+    updateData.cardHolderName = cardHolderName.trim();
+  }
+
+  let normalizedNewAccount: string | undefined;
+
+  if (accountNumber !== undefined) {
+    normalizedNewAccount = normalizeAccount(accountNumber);
+  }
+
+  // Skip conflict check if account number didn't change
+  if (normalizedNewAccount !== existingCard.currentAccountNumber) {
+    // Check conflict: same account + same bank + active
+
+    const existingCardWithSameAccount = await db
+      .select()
+      .from(bankCards)
+      .where(
+        and(
+          eq(bankCards.userId, userId),
+          eq(bankCards.bankName, existingCard.bankName),
+          ilike(bankCards.accountNumber, normalizedNewAccount as string),
+          ne(bankCards.id, cardId)
+        )
+      )
+      .limit(1)
+      .then((r) => r[0]);
+
+    if (existingCardWithSameAccount) {
+      throw new ConflictException(
+        `This account number is already used with ${existingCard.bankName}`
+      );
+    }
+
+    updateData.accountNumber = normalizedNewAccount;
+  }
+
+  const updated = await db
+    .update(bankCards)
+    .set({
+      ...updateData,
+      updatedAt: new Date(),
+    })
+    .where(eq(bankCards.id, cardId))
+    .returning()
+    .then((r) => r[0]);
+
+  const result = await db
+    .select({
+      id: bankCards.id,
+      userId: bankCards.userId,
+      cardHolderName: bankCards.cardHolderName,
+      bankName: bankCards.bankName,
+      accountNumber: bankCards.accountNumber,
+      isActive: bankCards.isActive,
+      isPrimary: bankCards.isPrimary,
+      createdAt: bankCards.createdAt,
+      updatedAt: bankCards.updatedAt,
+      userName: users.name,
+      userPhone: users.phone,
+    })
+    .from(bankCards)
+    .leftJoin(users, eq(bankCards.userId, users.id))
+    .where(eq(bankCards.id, updated.id))
+    .limit(1)
+    .then((r) => r[0]);
+
+  if (!result) throw new NotFoundException("Card not found after updated");
+
+  return {
+    ...result,
+    accountNumber: maskAccountNumber(result.accountNumber, result.bankName),
+  };
+};
+
 export const BankCardsServices = {
   addBankCard,
   getUserBankCards,
   getBankAccountById,
+  editBankCard,
 };

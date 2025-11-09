@@ -41,7 +41,7 @@ const getUserBankCards = asyncHandler(async (req, res) => {
 const getBankAccountById = asyncHandler(async (req, res) => {
   const userId = req.user?.userId;
 
-  if(!userId) throw new NotFoundException("User not found");
+  if (!userId) throw new NotFoundException("User not found");
 
   const { cardId } = req.params;
 
@@ -58,8 +58,29 @@ const getBankAccountById = asyncHandler(async (req, res) => {
   });
 });
 
+const editBankCard = asyncHandler(async (req, res) => {
+  const userId = req.user?.userId;
+
+  if (!userId) throw new NotFoundException("User not found");
+
+  const body = { ...req.body, cardId: req.params.cardId };
+
+  const result = await BankCardsServices.editBankCard({
+    ...body,
+    userId,
+  });
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "Bank card updated successfully",
+    data: result,
+  });
+});
+
 export const BankCardsControllers = {
   addBankCard,
   getUserBankCards,
   getBankAccountById,
+  editBankCard,
 };

@@ -27,3 +27,10 @@ export type TBankCardWithUser = {
   userName: string | null;
   userPhone: string | null;
 };
+
+export type TEditBankCardPayload = {
+  cardId: string;
+  userId: string;
+  cardHolderName?: string;
+  accountNumber?: string;
+};

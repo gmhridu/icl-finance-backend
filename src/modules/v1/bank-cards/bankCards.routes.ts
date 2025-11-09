@@ -17,4 +17,11 @@ router.get("/", auth(), BankCardsControllers.getUserBankCards);
 
 router.get("/:cardId", auth(), BankCardsControllers.getBankAccountById);
 
+router.patch(
+  "/:cardId",
+  auth(),
+  validateRequest(BankCardsValidations.editBankCardSchema),
+  BankCardsControllers.editBankCard
+);
+
 export const BankCardRouter = router;
