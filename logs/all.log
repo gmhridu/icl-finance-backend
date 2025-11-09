@@ -552,3 +552,85 @@
 {"body":{"accountNumber":"01905147305","bankName":"JAZZCASH","cardHolderName":"Golam Mahabub Redoy"},"level":"error","message":"This account number already exists for this bank type!","name":"Error","query":{},"stack":"Error: This account number already exists for this bank type!\n    at Object.addBankCard (/media/gm-hridoy/programming/icl-finance-backend/src/modules/v1/bank-cards/bankCards.service.ts:26:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /media/gm-hridoy/programming/icl-finance-backend/src/modules/v1/bank-cards/bankCards.controller.ts:18:18\n    at async /media/gm-hridoy/programming/icl-finance-backend/src/middlewares/asyncHandler.middleware.ts:12:7","timestamp":"2025-11-08 18:42:10","user":"anonymous"}
 {"level":"http","message":"POST /api/v1/bank-card/add-bank-card 409 13ms","timestamp":"2025-11-08 18:42:10"}
 {"level":"http","message":"POST /api/v1/bank-card/add-bank-card 200 8ms","timestamp":"2025-11-08 18:42:32"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:06:05"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:06:05"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:07:20"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:07:20"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:08:53"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:08:53"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:09:19"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:09:19"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:09:38"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:09:38"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:14:03"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:14:03"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:14:18"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:14:18"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:15:06"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:15:06"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:16:01"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:16:01"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:16:22"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:16:22"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:17:18"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:17:18"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:17:59"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:17:59"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:19:32"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:19:32"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:19:45"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:19:45"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:21:14"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:21:14"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:21:31"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:21:31"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:21:56"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:21:56"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:22:11"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:22:11"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:22:21"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:22:21"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:23:26"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:23:26"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:23:45"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:23:45"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:26:56"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:26:56"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:27:36"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:27:36"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:28:19"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:28:19"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:28:56"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:28:56"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:29:13"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:29:13"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:31:59"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:31:59"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:32:08"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:32:08"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:34:23"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:34:23"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:35:22"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:35:22"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:35:42"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:35:42"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:35:53"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:35:53"}
+{"level":"info","message":"User login attempt","phone":"01735794662","timestamp":"2025-11-09 14:36:28"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-09 14:36:28","userId":"a3645b03-98f0-4d06-b788-1432d425fe47"}
+{"level":"http","message":"POST /api/v1/auth/login 200 164ms","timestamp":"2025-11-09 14:36:28"}
+{"level":"error","message":"Cannot POST /api/v1/bank-card","name":"Error","query":{},"stack":"Error: Cannot POST /api/v1/bank-card\n    at notFoundHandler (/media/gm-hridoy/programming/icl-finance-backend/src/middlewares/notFound.middleware.ts:10:8)\n    at Layer.handleRequest (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/lib/layer.js:152:17)\n    at trimPrefix (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:342:13)\n    at /media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:297:9\n    at processParams (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:582:12)\n    at Immediate.next (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:291:5)\n    at Immediate._onImmediate (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:688:15)\n    at processImmediate (node:internal/timers:507:21)","timestamp":"2025-11-09 14:36:53","user":"anonymous"}
+{"level":"http","message":"POST /api/v1/bank-card 404 13ms","timestamp":"2025-11-09 14:36:53"}
+{"level":"http","message":"GET /api/v1/bank-card 200 10ms","timestamp":"2025-11-09 14:37:10"}
+{"level":"error","message":"Failed query: select \"bank_cards\".\"id\", \"bank_cards\".\"user_id\", \"bank_cards\".\"card_holder_name\", \"bank_cards\".\"bank_name\", \"bank_cards\".\"account_number\", \"bank_cards\".\"is_active\", \"bank_cards\".\"is_primary\", \"bank_cards\".\"created_at\", \"bank_cards\".\"updated_at\", \"users\".\"name\", \"users\".\"phone\" from \"bank_cards\" left join \"users\" on \"bank_cards\".\"user_id\" = \"users\".\"id\" where (\"bank_cards\".\"id\" = $1 and \"bank_cards\".\"user_id\" = $2 and \"bank_cards\".\"is_active\" = $3) limit $4\nparams: ,a3645b03-98f0-4d06-b788-1432d425fe47,true,1","name":"Error","query":{},"stack":"Error: Failed query: select \"bank_cards\".\"id\", \"bank_cards\".\"user_id\", \"bank_cards\".\"card_holder_name\", \"bank_cards\".\"bank_name\", \"bank_cards\".\"account_number\", \"bank_cards\".\"is_active\", \"bank_cards\".\"is_primary\", \"bank_cards\".\"created_at\", \"bank_cards\".\"updated_at\", \"users\".\"name\", \"users\".\"phone\" from \"bank_cards\" left join \"users\" on \"bank_cards\".\"user_id\" = \"users\".\"id\" where (\"bank_cards\".\"id\" = $1 and \"bank_cards\".\"user_id\" = $2 and \"bank_cards\".\"is_active\" = $3) limit $4\nparams: ,a3645b03-98f0-4d06-b788-1432d425fe47,true,1\n    at PostgresJsPreparedQuery.queryWithCache (/media/gm-hridoy/programming/icl-finance-backend/node_modules/src/pg-core/session.ts:73:11)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async /media/gm-hridoy/programming/icl-finance-backend/node_modules/src/postgres-js/session.ts:58:17\n    at async Object.getBankAccountById (/media/gm-hridoy/programming/icl-finance-backend/src/modules/v1/bank-cards/bankCards.service.ts:79:18)\n    at async /media/gm-hridoy/programming/icl-finance-backend/src/modules/v1/bank-cards/bankCards.controller.ts:48:18\n    at async /media/gm-hridoy/programming/icl-finance-backend/src/middlewares/asyncHandler.middleware.ts:12:7","timestamp":"2025-11-09 14:38:56","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/bank-card/0b06a316-a1cb-4b0c-a752-25c726992e64 500 61ms","timestamp":"2025-11-09 14:38:56"}
+{"level":"info","message":"🟢 Database connected successfully","timestamp":"2025-11-09 14:40:45"}
+{"level":"info","message":"🚀 Server running at http://localhost:5000 in development mode","timestamp":"2025-11-09 14:40:45"}
+{"level":"http","message":"GET /api/v1/bank-card/0b06a316-a1cb-4b0c-a752-25c726992e64 200 25ms","timestamp":"2025-11-09 14:40:51"}
+{"level":"error","message":"Access token is required","name":"Error","query":{},"stack":"Error: Access token is required\n    at /media/gm-hridoy/programming/icl-finance-backend/src/middlewares/auth.middleware.ts:23:13\n    at /media/gm-hridoy/programming/icl-finance-backend/src/middlewares/asyncHandler.middleware.ts:12:13\n    at Layer.handleRequest (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/lib/layer.js:152:17)\n    at next (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/lib/route.js:157:13)\n    at Route.dispatch (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/lib/route.js:117:3)\n    at handle (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:435:11)\n    at Layer.handleRequest (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/lib/layer.js:152:17)\n    at /media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:295:15\n    at param (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:600:14)\n    at param (/media/gm-hridoy/programming/icl-finance-backend/node_modules/router/index.js:610:14)","timestamp":"2025-11-09 14:41:33","user":"anonymous"}
+{"level":"http","message":"GET /api/v1/bank-card/fcd2948f-8ec3-444f-90a9-893bdfc29f92 401 11ms","timestamp":"2025-11-09 14:41:33"}
+{"level":"info","message":"User login attempt","phone":"01735794662","timestamp":"2025-11-09 14:41:38"}
+{"level":"info","message":"User logged in successfully","timestamp":"2025-11-09 14:41:38","userId":"a3645b03-98f0-4d06-b788-1432d425fe47"}
+{"level":"http","message":"POST /api/v1/auth/login 200 116ms","timestamp":"2025-11-09 14:41:38"}
+{"level":"http","message":"GET /api/v1/bank-card 200 9ms","timestamp":"2025-11-09 14:41:45"}
+{"level":"http","message":"GET /api/v1/bank-card/fcd2948f-8ec3-444f-90a9-893bdfc29f92 200 10ms","timestamp":"2025-11-09 14:41:49"}

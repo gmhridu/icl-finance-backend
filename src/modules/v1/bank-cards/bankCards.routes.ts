@@ -13,4 +13,8 @@ router.post(
   BankCardsControllers.addBankCard
 );
 
+router.get("/", auth(), BankCardsControllers.getUserBankCards);
+
+router.get("/:cardId", auth(), BankCardsControllers.getBankAccountById);
+
 export const BankCardRouter = router;

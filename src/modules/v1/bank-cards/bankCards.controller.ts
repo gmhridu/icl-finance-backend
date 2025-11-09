@@ -25,6 +25,41 @@ const addBankCard = asyncHandler(async (req, res) => {
   });
 });
 
+const getUserBankCards = asyncHandler(async (req, res) => {
+  const userId = req.user?.userId;
+
+  const result = await BankCardsServices.getUserBankCards(userId as string);
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "Bank cards retrieved successfully",
+    data: result,
+  });
+});
+
+const getBankAccountById = asyncHandler(async (req, res) => {
+  const userId = req.user?.userId;
+
+  if(!userId) throw new NotFoundException("User not found");
+
+  const { cardId } = req.params;
+
+  const result = await BankCardsServices.getBankAccountById({
+    userId,
+    cardId,
+  });
+
+  sendResponse(res, {
+    status: HTTPSTATUS.OK,
+    success: true,
+    message: "Bank account retrieved successfully",
+    data: result,
+  });
+});
+
 export const BankCardsControllers = {
   addBankCard,
+  getUserBankCards,
+  getBankAccountById,
 };
